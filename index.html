@@ -8,26 +8,18 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <script src="./index.js"></script>
-
         <h1> To Do List</h1>
 
         <form>
             <div class="new-entry">
                 <label for="new">Add a new Entry: </label>
                 <input type="text" name="new-entry" id="new"/>
-            </div>
-            <div class="submit-entry">
-                <input type="submit" value="Create Entry" />
+                <input type="button" value="Add Entry" id="add-entry"/>
             </div>
         </form>
         
         <ul id="to-do-items">
-            <li>    
-                <input type="checkbox" id="Test-Item" name="Test-Item"/>
-                <label for="Test-Item">Test Item</label>
-                <input type="button" value="Delete Item"/>
-            </li>
         </ul>
+        <script src="./index.js"></script>
     </body>
 </html>
