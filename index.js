@@ -15,10 +15,8 @@ let printList = (checklist)=>{
           
 };
 
-let resetList = () =>{listContainer.innerHTML = ``};
-
 listContainer.addEventListener("click", (event)=>{
-    console.log(event.target);
+
     if(event.target.classList.contains('label'))
     {
         event.target.classList.toggle('strike');
