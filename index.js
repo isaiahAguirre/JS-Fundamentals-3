@@ -33,5 +33,5 @@ btnSubmit.addEventListener("click", ()=>{
     let newEntry = document.getElementById("new").value;
     checklist.push(newEntry);
     printList(checklist);
-    document.getElementById("#new").innerHTML = '';
+    document.getElementById("new").value = '';
 });
