@@ -1,47 +1,37 @@
 
-let btnSubmit = document.querySelector('#add-entry');
-let btnDelete = document.querySelector('.deleteButton');
-let listContainer = document.querySelector("#to-do-items");
-
+const btnSubmit = document.querySelector('#add-entry');
+const listContainer = document.querySelector("#to-do-items");
 let checklist = [];
 
-// btnSubmit.addEventListener("click", ()=>{
-//     let newEntry = document.getElementById("new").value;
-//     console.log(newEntry);
-//     listElement.innerHTML =             
-//     `<li>    
-//         <input type="checkbox" class="Test-Item" name="Test-Item2"/>
-//         <label for="Test-Item2">${newEntry}</label>
-//         <input type="button" value="Delete Item"/>
-//     </li>`;
-//     listContainer.appendChild(listElement);
-// });
-
 let printList = (checklist)=>{
-
-    for(let n = 0; n < checklist.length; n++)
-    {
         let listElement = document.createElement('li');
         listElement.innerHTML =             
-        `<li>    
-            <input type="checkbox" class="Test-Item" name="Test-Item-${n + 1}"/>
-            <label for="Test-Item-${n + 1}">${checklist[n]}</label>
-            <input type="button" value="Delete Item" class="deleteButton"/>
+        `<li id="test">    
+            <label class="label">${checklist[checklist.length - 1]}</label>
+            <input type="button" id=${checklist.length-1} value="X" class="deleteButton"/>
         </li>`;
         listContainer.appendChild(listElement);
-    }
-
+        
+          
 };
 
 let resetList = () =>{listContainer.innerHTML = ``};
 
-printList(checklist);
+listContainer.addEventListener("click", (event)=>{
+    console.log(event.target);
+    if(event.target.classList.contains('label'))
+    {
+        event.target.classList.toggle('strike');
+    } 
+    else if(event.target.classList.contains('deleteButton'))
+    {
+        event.target.parentElement.remove();
+    }
+})
 
 btnSubmit.addEventListener("click", ()=>{
     let newEntry = document.getElementById("new").value;
     checklist.push(newEntry);
-    console.log(checklist);
-    resetList();
     printList(checklist);
+    document.getElementById("#new").innerHTML = '';
 });
-
